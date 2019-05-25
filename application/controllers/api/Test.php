@@ -11,7 +11,7 @@ require APPPATH . 'libraries/Format.php';
  
 class Test extends REST_Controller {
  
-    function articles_get()
+    public function articles_get()
     {
 		$this->response([
 			'status' => TRUE,
@@ -19,7 +19,7 @@ class Test extends REST_Controller {
 		], REST_Controller::HTTP_OK);
     }
  
-    function articles_put()
+    public function articles_put()
     {
         $this->response([
 			'status' => TRUE,
@@ -27,7 +27,7 @@ class Test extends REST_Controller {
 		], REST_Controller::HTTP_OK);
 	}
  
-    function articles_post()
+    public function articles_post()
     {
 		$this->response([
 			'status' => TRUE,
@@ -35,7 +35,7 @@ class Test extends REST_Controller {
 		], REST_Controller::HTTP_OK);
     }
  
-    function articles_delete()
+    public function articles_delete()
     {
 		$this->response([
 			'status' => TRUE,
