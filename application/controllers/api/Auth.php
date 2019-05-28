@@ -2,14 +2,16 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+require APPPATH . 'libraries/JWT_REST_Controller.php';
 require APPPATH . 'libraries/Format.php';
 require APPPATH . 'third_party/firebase/php-jwt/src/JWT.php';
 
-use Restserver\Libraries\REST_Controller;
+//use Restserver\Libraries\REST_Controller;
 use Firebase\JWT\JWT;
 
-class Auth extends REST_Controller {
+use JWTRestserver\Libraries\JWT_REST_Controller;
+
+class Auth extends JWT_REST_Controller {
 
 	public function login_post()
 	{
