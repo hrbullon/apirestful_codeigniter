@@ -1,9 +1,13 @@
 <?php
 
+
 namespace Restserver\Libraries;
+
 use CI_Controller;
 use Exception;
 use stdClass;
+
+use Firebase\JWT\JWT; 
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -395,6 +399,26 @@ abstract class REST_Controller extends CI_Controller {
     public function __construct($config = 'rest')
     {
         parent::__construct();
+
+		//Check JWT JSON Web Token
+        $headers = $this->input->get_request_header('Authorization'); //get token from request header
+		//Remove Bearer String 
+		$headers = str_replace('Bearer ','', $headers);
+
+		try {
+
+			$decoded = JWT::decode($headers, JWT_KEY, array('HS256'));
+			
+		}   catch (Exception $e) {
+
+			$this->response = new stdClass();
+			$this->response->format = $this->_detect_output_format();
+
+			$this->response([
+				'status' => FALSE,
+				'error' => 'Token inválido',
+			], REST_Controller::HTTP_BAD_REQUEST);
+		}
 
         $this->preflight_checks();
 

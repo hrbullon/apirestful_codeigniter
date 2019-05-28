@@ -91,5 +91,5 @@ defined('SECOND_HASH')   OR define('SECOND_HASH', md5(FIRST_HASH));
 defined('SALT_HASH')     OR define('SALT_HASH', md5(FIRST_HASH."//20-=-1".SECOND_HASH)); 
 
 //Encrytp String
-defined('JWT_KEY')     OR define('JWT_KEY', 'fhe!c*-rypt#/87^&@!'); 
+defined('JWT_KEY')     OR define('JWT_KEY', 'e20r256AnkLmMLy'); 
 

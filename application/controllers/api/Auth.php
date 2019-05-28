@@ -62,6 +62,11 @@ class Auth extends REST_Controller {
 
 	}
 
+	public function test_get(){
+		$r = $this->input->get_request_header('Authorization', TRUE);
+		echo $r;
+	}
+
 }
 
 /* End of file Auth.php */
